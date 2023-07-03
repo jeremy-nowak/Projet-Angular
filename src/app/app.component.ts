@@ -3,10 +3,10 @@ import { POKEMONS } from "./mock-pokemon-list";
 import { Pokemon } from './pokemon';
 
 
-// template is equal to the view
+// The template is equivalent to the view. Here, we have targeted another file, 'app.component.html', to ensure that we never put logic inside the view by separating them.
 @Component({
   selector: 'app-root',
-  template:  `<h1> Liste de Pokémons! </h1>`
+  templateUrl:  'app.component.html'
 
 })
 
@@ -17,11 +17,11 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     console.table(this.pokemonList);
-    this.selectPokemon(this.pokemonList[0])
   }
 
-  selectPokemon(pokemon: Pokemon){
-    console.log(`Vous avez cliqué sur le pokemon ${pokemon.name}`);
+  selectPokemon(event: MouseEvent){
+    const index: number = +(event.target as HTMLInputElement).value
+    console.log(`Vous avez cliqué sur le pokemon ${this.pokemonList[index].name}`);
   }
 
 }
