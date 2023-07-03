@@ -3,10 +3,10 @@ import { POKEMONS } from "./mock-pokemon-list";
 import { Pokemon } from './pokemon';
 
 
-// template is equal to the view
+// The template is equivalent to the view. Here, we have targeted another file, 'app.component.html', to ensure that we never put logic inside the view by separating them.
 @Component({
   selector: 'app-root',
-  template:  `<h1> Liste de Pokémons! </h1>`
+  templateUrl:  'app.component.html'
 
 })
 
